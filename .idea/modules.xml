@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/geokoder.iml" filepath="$PROJECT_DIR$/.idea/modules/geokoder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/geokoder_main.iml" filepath="$PROJECT_DIR$/.idea/modules/geokoder_main.iml" group="geokoder" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/geokoder_test.iml" filepath="$PROJECT_DIR$/.idea/modules/geokoder_test.iml" group="geokoder" />
+    </modules>
+  </component>
+</project>
