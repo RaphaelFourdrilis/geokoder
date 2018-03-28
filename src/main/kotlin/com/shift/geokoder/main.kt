@@ -1,38 +1,36 @@
 package com.shift.geokoder
 
-import com.shift.geokoder.routes.Index
-import com.shift.geokoder.routes.IndexResponse
+import com.github.kittinunf.fuel.core.FuelManager
+import com.shift.geokoder.routes.graphql
 import io.ktor.application.Application
-import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.features.CORS
-import io.ktor.features.CallLogging
-import io.ktor.features.ContentNegotiation
-import io.ktor.features.DefaultHeaders
+import io.ktor.features.*
 import io.ktor.gson.gson
-import io.ktor.http.HttpStatusCode
 import io.ktor.locations.Locations
-import io.ktor.locations.get
-import io.ktor.response.respond
 import io.ktor.routing.routing
+import java.text.DateFormat
 
+@Suppress("unused")
 fun Application.geokoder() {
+    FuelManager.instance.basePath = "https://services.gisgraphy.com"
+
     install(DefaultHeaders)
     install(CallLogging)
+    install(ConditionalHeaders)
+    install(PartialContent)
+    install(Compression)
     install(CORS)
     install(Locations)
     install(ContentNegotiation) {
         gson {
+            setDateFormat(DateFormat.LONG)
+            disableHtmlEscaping()
             setPrettyPrinting()
-
             enableComplexMapKeySerialization()
-
             serializeSpecialFloatingPointValues()
         }
     }
     routing {
-        get<Index> { index ->
-            call.respond(HttpStatusCode.OK, IndexResponse("Hello, ${index.name}"))
-        }
+        graphql()
     }
 }
