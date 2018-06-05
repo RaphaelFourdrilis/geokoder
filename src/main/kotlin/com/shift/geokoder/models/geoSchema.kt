@@ -1,10 +1,5 @@
 package com.shift.geokoder.models
 
-import com.github.kittinunf.fuel.httpGet
-import com.github.kittinunf.result.Result
-import com.github.pgutkowski.kgraphql.KGraphQL
-import com.google.gson.Gson
-
 data class GeoJSONResponse(
         val features: List<GeoJSONFeature>
 )
