@@ -1,7 +1,7 @@
 package com.shift.geokoder
 
-import com.github.kittinunf.fuel.core.FuelManager
-import com.shift.geokoder.routes.graphql
+import com.shift.geokoder.routes.osrm
+import com.shift.geokoder.routes.pelias
 import io.ktor.application.Application
 import io.ktor.application.install
 import io.ktor.features.*
@@ -12,8 +12,6 @@ import java.text.DateFormat
 
 @Suppress("unused")
 fun Application.geokoder() {
-    FuelManager.instance.basePath = "https://services.gisgraphy.com"
-
     install(DefaultHeaders)
     install(CallLogging)
     install(ConditionalHeaders)
@@ -31,6 +29,7 @@ fun Application.geokoder() {
         }
     }
     routing {
-        graphql()
+        pelias()
+        osrm()
     }
 }
