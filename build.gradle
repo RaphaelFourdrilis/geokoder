@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.51'
     ext.ktor_version = '0.9.2'
 
     repositories {
@@ -50,8 +50,8 @@ compileTestKotlin {
 
 shadowJar {
     baseName = 'geokoder'
-    classifier = null
-    version = null
+    classifier = ""
+    version = ""
     destinationDir = projectDir
 }
 

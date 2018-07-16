@@ -27,35 +27,8 @@ Usage
 
 ### HTTP endpoints
 
-There is only one endpoint for all services: `/graphql`. A generic [Graphql][GQL] query looks
-like this:
-
-```http
-POST https://sh-ov-cmon-geo2/graphql
-Content-Type: application/json
-
-{
-    "query": "name(arg1, arg2, ...) { filter1, filter2 }"
-}
-```
-
-Several things to pay attention to here:
-
-- `name` is the name of the service you want to query
-- `args` are the arguments the service takes as input
-- `filters` are pieces of the response you want to get
-
-For example, if you wanted to `search` for an address and only get the name and the country
-instead of all possible information about the result, you would need to send this query:
-
-```http
-POST https://sh-ov-cmon-geo2/graphql
-Content-Type: application/json
-
-{
-    "query": "search(14 rue Gerty Archimede) { name, country }"
-}
-```
+We keep our API documentation within [Postman Documenter][PMD].
+Feel free to browse, it is quite comprehensive!
 
 C# helper classes
 -----------------
@@ -68,3 +41,4 @@ C# helper classes
 [OSRM]: http://project-osrm.org/
 [PEL]: https://github.com/pelias/pelias/
 [GQL]: https://graphql.org/
+[PMD]: https://documenter.getpostman.com/view/4016557/RWEZTP8U

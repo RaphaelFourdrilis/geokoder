@@ -15,6 +15,13 @@ data class GeoJSONGeometry(
 )
 
 data class GeoJSONProperty(
+        val id: String,
+        val gid: String,
+        val layer: String,
+        val country_gid: String,
+        val macroregion_gid: String,
+        val region_gid: String,
+        val locality_gid: String,
         val name: String,
         val confidence: Double,
         val country_a: String,
