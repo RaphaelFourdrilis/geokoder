@@ -6,7 +6,8 @@ data class GeoJSONResponse(
 
 data class GeoJSONFeature(
         val geometry: GeoJSONGeometry,
-        val properties: GeoJSONProperty
+        val properties: GeoJSONProperty,
+        val bbox: List<Float>
 )
 
 data class GeoJSONGeometry(
