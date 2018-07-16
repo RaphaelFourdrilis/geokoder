@@ -1,7 +1,8 @@
 package com.shift.geokoder.models
 
 data class GeoJSONResponse(
-        val features: List<GeoJSONFeature>
+        val features: List<GeoJSONFeature>,
+        val bbox: List<Float>
 )
 
 data class GeoJSONFeature(
