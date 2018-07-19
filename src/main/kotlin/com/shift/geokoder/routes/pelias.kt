@@ -34,4 +34,24 @@ fun Route.pelias() {
             }
         }
     }
+
+    get<PlaceSearch> {
+        val path = "$basePath/v1/place"
+        val (_, _, result) = path.httpGet(
+                listOf("ids" to it.ids)
+        ).responseString()
+
+        when (result) {
+            is Result.Failure ->
+                call.respond(
+                        HttpStatusCode.BadRequest,
+                        ErrorResponse("Error: ${result.error}")
+                )
+            is Result.Success -> {
+                val ret = gson.fromJson(result.value, GeoJSONResponse::class.java)
+
+                call.respond(ret)
+            }
+        }
+    }
 }

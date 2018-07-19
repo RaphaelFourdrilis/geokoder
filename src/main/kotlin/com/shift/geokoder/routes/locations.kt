@@ -14,3 +14,8 @@ data class RouteInfo(
 data class SearchInfo(
         val text: String
 )
+
+@Location("/place")
+data class PlaceSearch(
+        val ids: String
+)
